@@ -42,9 +42,11 @@ lib/
 ├── core/                  # Core utilities and configurations (e.g., constants, error handling)
 ├── data/                  # Data layer, including models, API services, and repositories
 │   ├── models/            # Models representing API responses (Job, JobDetails, etc.)
-│   └── repositories/      # Repositories that abstract API calls
+│   ├── data_source/       # DataSource to get all models from API calls
+│   └── repo/              # Repositories that abstract API calls
 ├── domain/                # Domain layer with business logic, use cases, and entities
 │   └── usecases/          # Use cases (e.g., fetching jobs, fetching job details)
+│   └── repo/              # Abstract Repo
 ├── presentation/          # Presentation layer, including UI, Widgets, and Blocs
 │   ├── bloc/              # Bloc logic for Jobs and JobDetails
 │   └── screens/           # Jobs List and Job Details screens
