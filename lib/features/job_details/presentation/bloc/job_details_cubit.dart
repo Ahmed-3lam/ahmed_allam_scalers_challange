@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:scalers_challange/core/dependencies/injection.dart';
 import 'package:scalers_challange/core/network/dio_helper.dart';
+import 'package:scalers_challange/features/job_details/domain/use_case/job_details_use_case.dart';
 
 import '../../../../core/network/k_apis.dart';
 import '../../data/models/JobDetailsModel.dart';
@@ -9,7 +10,11 @@ import '../../data/models/JobDetailsModel.dart';
 part 'job_details_state.dart';
 
 class JobDetailsCubit extends Cubit<JobDetailsState> {
-  JobDetailsCubit() : super(JobDetailsInitial());
+  final JobDetailsUseCase _jobDetailsUseCase;
+
+  JobDetailsCubit(JobDetailsUseCase jobDetailsUseCase)
+      : _jobDetailsUseCase = jobDetailsUseCase,
+        super(JobDetailsInitial());
 
   void getJobDetails(String id) async {
     emit(JobDetailsLoading());

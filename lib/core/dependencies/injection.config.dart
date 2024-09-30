@@ -21,6 +21,14 @@ import 'package:scalers_challange/features/all_jobs/domain/repo/all_jobs_repo.da
     as _i925;
 import 'package:scalers_challange/features/all_jobs/domain/use_cases/all_jobs_use_case.dart'
     as _i948;
+import 'package:scalers_challange/features/job_details/data/data_source/job_details_data_source.dart'
+    as _i1016;
+import 'package:scalers_challange/features/job_details/data/repo/job_details_repo_impl.dart'
+    as _i728;
+import 'package:scalers_challange/features/job_details/domain/repo/job_details_repo.dart'
+    as _i382;
+import 'package:scalers_challange/features/job_details/domain/use_case/job_details_use_case.dart'
+    as _i454;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -35,12 +43,18 @@ extension GetItInjectableX on _i174.GetIt {
     );
     final izamInjectionModule = _$IzamInjectionModule();
     gh.lazySingleton<_i1072.DioHelper>(() => izamInjectionModule.dioHelper);
+    gh.lazySingleton<_i1016.JobDetailsDataSource>(() =>
+        _i1016.JobDetailsDataSourceImpl(dioHelper: gh<_i1072.DioHelper>()));
     gh.lazySingleton<_i569.AllJobsDataSource>(
         () => _i569.AllJobsDataSourceImpl(dioHelper: gh<_i1072.DioHelper>()));
+    gh.lazySingleton<_i382.JobDetailsRepo>(() => _i728.JobDetailsRepoImpl(
+        jobDetailsDataSource: gh<_i1016.JobDetailsDataSource>()));
     gh.lazySingleton<_i925.AllJobsRepo>(() => _i372.AllJobsRepoImpl(
         allJobsDataSource: gh<_i569.AllJobsDataSource>()));
     gh.lazySingleton<_i948.AllJobsUseCase>(
         () => _i948.AllJobsUseCase(gh<_i925.AllJobsRepo>()));
+    gh.lazySingleton<_i454.JobDetailsUseCase>(
+        () => _i454.JobDetailsUseCase(gh<_i382.JobDetailsRepo>()));
     return this;
   }
 }

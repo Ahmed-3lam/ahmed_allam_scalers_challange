@@ -24,12 +24,12 @@ class MyApp extends StatelessWidget {
           create: (context) => AllJobsCubit(serviceLocator())..fetchAllJobs(),
         ),
         BlocProvider(
-          create: (context) => JobDetailsCubit(),
+          create: (context) => JobDetailsCubit(serviceLocator()),
         ),
       ],
       child: BlocBuilder<AllJobsCubit, AllJobsState>(
         builder: (context, state) {
-          return MaterialApp(
+          return const MaterialApp(
             debugShowCheckedModeBanner: false,
             home: Scaffold(
               body: AllJobsScreen(),
