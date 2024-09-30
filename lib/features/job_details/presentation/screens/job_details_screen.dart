@@ -85,7 +85,7 @@ class JobDetailScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "${job.location!.nameEn!} · Onsite · ${job.type!.nameEn}",
+                      "${job.location?.nameEn!} · Onsite · ${job.type?.nameEn}",
                       style: const TextStyle(
                         color: Colors.grey,
                       ),
