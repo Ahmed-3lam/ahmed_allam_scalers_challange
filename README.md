@@ -30,7 +30,6 @@ You can find the design specifications in the [Figma link](https://www.figma.com
 
 - **Flutter SDK**
 - **Bloc**: For state management.
-- **Equatable**: For efficient state comparison in Bloc.
 - **Dio**: For making API requests.
 - **Get it**: For DI.
 
