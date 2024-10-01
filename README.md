@@ -57,7 +57,7 @@ lib/
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-repo/job-listing-app.git
+   git clone https://github.com/Ahmed-3lam/ahmed_allam_scalers_challange.git
    ```
 
 2. **Install dependencies**:
